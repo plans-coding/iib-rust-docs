@@ -1,0 +1,802 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Immer in Bewegung Documentation — 3rd gen DRAFT</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-4877897e.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-6a49f3c0.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Immer in Bewegung Documentation — 3rd gen DRAFT</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/rust-lang/mdBook" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="start"><a href="#start" class="header">Start</a></h1>
+<style>
+
+.start-container  {
+    font-size:1.4em;
+    text-align:center;
+}
+
+.revisit {
+    font-size:2em;
+    background: linear-gradient(45deg, gold, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.link {
+    background: linear-gradient(90deg, #0b5394, purple);
+    border-bottom: 2px dashed #1d655e;
+    color: #fff !important;
+}
+
+.download {
+    border-bottom: 2px dashed #1d655e;
+    font-weight: 700;
+}
+
+.download:hover {
+    border-bottom: 2px solid #1d655e;
+}
+
+</style>
+<br>
+<div class="start-container">
+<img src="https://bewegung.app/img/frog.svg" style="height:150pt;">
+    
+<h1 class="revisit">Revisit your travel memories</h1>
+
+    
+<p>Open source travel documentation app for self-hosting or serverless usage<br><b>Lightweight and future proof</b></p>
+
+    
+<p><br>Try out the online version using <a class="link" href="https://online.bewegung.app/">example data</a> or <a class="link" href="https://online.bewegung.app/?p=source">your own data</a>.</p>
+
+<br />
+<div style="display:flex;align-items: center;justify-content: center;">
+    <img style="display:block;" src="https://rust-lang.org/static/images/rust-logo-blk.svg" alt="Rust" height="100">
+    <img style="display:block;" src="https://webassembly.org/css/webassembly.svg" alt="WebAssembly" height="60">
+</div>
+
+<p>For self-hosting deployment</p>
+
+<p><a class="download" style="text-decoration:none;" href="https://github.com/plans-coding/immer-in-bewegung/archive/refs/tags/v2.3.zip" target="_blank" rel="noopener noreferrer">Download latest version v2.3 (zip)</a><br /></p>
+<p><a href="https://github.com/plans-coding/immer-in-bewegung/archive/refs/tags/v2.3.tar.gz" target="_blank" rel="noopener noreferrer">Download in other format (tar.gz)</a></p>
+</div>
+
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="background"><a class="header" href="#background">Background</a></h1>
+<p>The idea for this application came to me while reflecting on the countless journeys I had taken. Despite all the places I had visited, I found myself forgetting key moments and locations. Friends would ask about my travels, and I often struggled to recall the details or find the photos that matched those memories. I realized I needed a way to not only document my trips but also retrieve the content of the documentation with ease.</p>
+<p>That is how <strong>Immer in Bewegung</strong> was born. The name, meaning <em>always in movement</em> in German, perfectly encapsulates the heart of this project. To bring this concept to life, the frog is chosen as the mascot—a symbol of endless motion and adventure.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>You can check out the online app running at <a href="https://online.bewegung.app/">https://online.bewegung.app/</a>. If you want to bind your own data, you can do so via <a href="https://online.bewegung.app/?p=source">https://online.bewegung.app/?p=source</a>.</p>
+</blockquote>
+<h2 id="basic-idea"><a class="header" href="#basic-idea">Basic idea</a></h2>
+<p>Over time, most code in applications becomes obsolete. To ensure your memories are not lost to such obsolescence, the core idea of this project is to visualize travel data stored in SQLite format. SQLite databases are easy to update using any of the many available tools, offer long-term reliability, and are more likely to remain compatible with future technologies. This makes it a solid, future-proof solution. However, scrolling through a database directly can be tedious—so why not build an interface on top? But this project is not just an application; it’s a versatile syntax that allows you to take travel notes in a simple and structured way.</p>
+<h3 id="three-main-features"><a class="header" href="#three-main-features">Three main features</a></h3>
+<ul>
+<li>A single SQLite database compliant with the Immer in Bewegung Trip Syntax</li>
+<li>Use directly on GitHub or host it on your own server</li>
+<li>Use in conjunction with Immich to combine your documentation with photos (optional)</li>
+</ul>
+<p><img src="img/swe.svg" alt="img"> <strong>Made in Sweden</strong></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quick-start"><a class="header" href="#quick-start">Quick Start</a></h1>
+<h2 id="usage-combinations"><a class="header" href="#usage-combinations">Usage Combinations</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th>Serverless usage</th><th>Self-hosting</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Configuration</strong></td><td>Via settings in database file</td><td>Via settings in database file</td></tr>
+<tr><td><strong>Database</strong></td><td>Your own database file that you bind via the browser File API</td><td>Your own database file that you bind via the browser File API or database file stored on a server</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="serverless-usage-simplest-choice"><a class="header" href="#serverless-usage-simplest-choice">Serverless usage (simplest choice)</a></h2>
+<p>Download the database template (read more about how to edit the file under <a href="create-dataset">Create the dataset</a></p>
+<p><a href="https://github.com/plans-coding/immer-in-bewegung/raw/refs/heads/main/personal/bewegung.db">https://github.com/plans-coding/immer-in-bewegung/raw/refs/heads/main/personal/bewegung.db</a></p>
+<p>To bind your own SQLite file to the online application, go to</p>
+<p><codeblock>https://online.bewegung.app/?p=source</codeblock></p>
+<p>Afterwards just start browsing your trips at</p>
+<p><codeblock>https://online.bewegung.app/</codeblock></p>
+<h2 id="host-on-your-own-server"><a class="header" href="#host-on-your-own-server">Host on your own server</a></h2>
+<p>If you want your app available from many devices without need to bind it specifillay on each device, you can develop your instance to your own server instead.</p>
+<h3 id="step-1--download-files"><a class="header" href="#step-1--download-files">Step 1 − Download files</a></h3>
+<p>Go to the directory where you want to place your files, e.g.</p>
+<pre><code>cd /var/www/iib
+</code></pre>
+<p>Download the <a href="https://github.com/plans-coding/immer-in-bewegung/releases/">latest release</a> to your home directory</p>
+<p><codeblock>wget https://github.com/plans-coding/immer-in-bewegung/archive/refs/tags/<latestversion />.tar.gz</codeblock></p>
+<h3 id="step-2--edit-settings"><a class="header" href="#step-2--edit-settings">Step 2 − Edit settings</a></h3>
+<p>Specify your settings and the path to the database file in <code>personal/settings.json</code>. Read more at <a href="settings">Settings</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="create-the-dataset"><a class="header" href="#create-the-dataset">Create the dataset</a></h1>
+<h2 id="database-structure"><a class="header" href="#database-structure">Database Structure</a></h2>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Download a pre-filled <a href="https://github.com/plans-coding/immer-in-bewegung/raw/refs/heads/main/personal/bewegung.db">SQLite template file</a> and edit the tables within.</p>
+</blockquote>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Table</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>bewa_Overview</strong></td><td>Table</td><td>The table that defines your trips. One trip per row.</td></tr>
+<tr><td><strong>bewb_Events</strong></td><td>Table</td><td>The table containg detailed notes from your trips. One row per day (date).</td></tr>
+<tr><td><strong>bewx_ParticipantGroups</strong></td><td>Table</td><td>Your travel groups. Feel free to edit.</td></tr>
+<tr><td><strong>bewx_TripDomains</strong></td><td>Table</td><td>Trip types.</td></tr>
+<tr><td><strong>bewxx_Settings</strong></td><td>Table</td><td>App settings storage (used when you bind the file to browser via File API).</td></tr>
+</tbody>
+</table>
+</div>
+<p>For more detailed instructions, follow the <a href="category/trip-syntax">Trip Syntax</a>.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>To obtain coordinates for a given position, you can use the <a href="https://online.bewegung.app/coordinate-tool.html">Coordinate Tool</a> and easily copy and paste the coordinates into the SQLite file.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="trip-syntax"><a class="header" href="#trip-syntax">Trip Syntax</a></h1>
+<h2 id="table-overview"><a class="header" href="#table-overview">Table: Overview</a></h2>
+<p>The first table in your SQLite file is named <code>bewa_Overview</code> with fields according to following.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Regarding validation: Some fields are checked for syntax and must comply to that.</p>
+</blockquote>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Column</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>InnerId</td><td>The InnerId is used to connect each row to date notes in table <code>bewb_Events</code>. It consists of a letter and a number <strong>without any dashes</strong> or other characters. The letter specifies the Trip Domain, e.g. <strong>domestic</strong> (I), <strong>abroad</strong> (U), or <strong>attachment</strong> (D) (see separate definition). The number is a chronological number, where the first trip in each letter category is marked as <strong>1</strong>. E.g. <strong>U23</strong> for abroad trip number 23.  <em>Use <strong>X</strong> if you want to exclude the row from the web app.</em><br /><br /><strong>Syntax:</strong> <code>&lt;one letter trip domain abbreviation&gt;&lt;a serial number&gt;</code></td></tr>
+<tr><td>ParticipantGroup</td><td>Could e.g. be <strong>Family</strong>, <strong>Private</strong>, or <strong>Work</strong>.<br /><br /><strong>Syntax:</strong> <code>&lt;string that must exist in table bewx_ParticipantGroups&gt;</code></td></tr>
+<tr><td>OuterId</td><td>The OuterID is exposed to end-user of the web app. It uses a letter and a index number <strong>separated by dash</strong>, where the letter is a abbreviation of the Trip Domain and a chronological index number. E.g. <strong>F-3</strong> (family trip 3), <strong>P-12</strong> (private trip 12), or <strong>W-4</strong> (work trip 4).<br /><br /><strong>Syntax:</strong> <code>&lt;letters and dashes and serial numbers of your choice&gt;</code></td></tr>
+<tr><td>OverallDestination</td><td>Type in you trip primary destination. E.g. <strong>Finland</strong>, or <strong>Italia, Spain etc.</strong><br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>DepartureDate</td><td>Your departure date in ISO format.<br /><br /><strong>Syntax:</strong> <code>YYYY-MM-DD</code></td></tr>
+<tr><td>ReturnDate</td><td>Your return date in ISO format.<br /><br /><strong>Syntax:</strong> <code>YYYY-MM-DD</code></td></tr>
+<tr><td>MapPins</td><td>The main stops of your trip that you want to plot on the map.<br /><br /><strong>Syntax (multi-line accepted):</strong> <code>{ NAME_OF_MAP_PIN  | LATITUDE, LONGITUDE }</code></td></tr>
+<tr><td>TripDescription</td><td>A short description that explain the aim of the trip. E.g. <strong>My fantastic summer trip to France</strong>.<br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>PhotoStarttime</td><td><em>For use with Immich.</em> If you leave your home at let say 8 pm and don’t want to include photos from earlier on <strong>departure day</strong>, then you can set a time here. If left empty, all photos from departure day will be included.<br /><br /><strong>Syntax:</strong> <code>HH:MM</code></td></tr>
+<tr><td>PhotoEndtime</td><td><em>For use with Immich.</em> Same as above, but for <strong>return day</strong>.<br /><br /><strong>Syntax:</strong> <code>HH:MM</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="table-events"><a class="header" href="#table-events">Table: Events</a></h2>
+<p>The second table in your SQLite file is named <code>bewb_Events</code> with fields according to following.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Regarding validation: Some fields are checked for syntax and must comply to that.</p>
+</blockquote>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Column Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>InnerId</td><td>Reference to corresponding InnerId in table <code>bewa_Overview</code>.<br /><br /><strong>Syntax:</strong> <code>&lt;one letter trip domain abbreviation&gt;&lt;a serial number&gt;</code></td></tr>
+<tr><td>Date</td><td>Your date in ISO format.<br /><br /><strong>Syntax:</strong> <code>YYYY-MM-DD</code></td></tr>
+<tr><td>Events</td><td>This is your fully description of what you did this day.<br /><br /><strong>Syntax (multi-line accepted):</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>Accommodation</td><td>The name and the address of your accommodation.<br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>AccommodationCountry</td><td>The name of the country you stayed in during the night.<br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>AccommodationCoordinateAccuracy</td><td>Possibility to mark the accuracy of the coordinates.<br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>AccommodationCoordinates</td><td>The gps coordinates of your accommodation, e.g. <strong>59.329444, 18.068611</strong>.<br /><br /><strong>Syntax:</strong> <code>lat_decimal,lng_decimal</code></td></tr>
+<tr><td>TravelParticipants</td><td>The name of your travel buddies, separated by comma. <strong>N.B.</strong> <em>Not exposured in web app.</em><br /><br /><strong>Syntax:</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>AdditionalNotes</td><td><strong>N.B.</strong> <em>Additional notes not exposured in web app.</em><br /><br /><strong>Syntax (multi-line accepted):</strong> <code>&lt;string&gt;</code></td></tr>
+<tr><td>CountriesDuringDay</td><td>This field is for enhanced statistics. Enter all countries in cronologial order during that day, separated by comma. The country names need to conform to the country names defined in <code>settings.yaml</code>. In front of the country name prefix <code>*</code>, <code>**</code>, and <code>+</code> is allowed. Read more under <a href="appendix">Appendix</a>.<br /><br /><strong>Syntax (prefix allowed):</strong> <code>&lt;country name without space&gt;, &lt;country name without space&gt;, &lt;country name without space&gt; [...]</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="table-continent-countries"><a class="header" href="#table-continent-countries">Table: Continent Countries</a></h2>
+<p>The third table in your SQLite file is named <code>bewx_ContinentCountries</code> with fields according to following.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Column Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Continent</td><td>The name of the continent the country belongs too.<br /><br /><strong>Syntax:</strong> <code>&lt;continent name&gt;</code></td></tr>
+<tr><td>Country</td><td>Add the name of countries you want to define. This must be in same language as the field <code>CountriesDuringDay</code> in <code>bewb_Events</code>.<br /><br /><strong>Syntax:</strong> <code>&lt;country name without space, use dash instead&gt;</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="make-other-country-definitions-or-translate-country-names"><a class="header" href="#make-other-country-definitions-or-translate-country-names">Make other country definitions (or translate country names)</a></h3>
+<p>If you want to change the pre-defined country settings you can do it by changing in the country definitions. Only countries defined in the table <code>bewx_ContinentCountries</code>  can be used in your trip notes and only with the very exact spelling.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Other language: If you have the countries in <code>bewb_Events</code> (<strong>CountriesDuringDay</strong>)  written in another languange than English, then you can change the app behaviour by translating the countries in the table <code>bewx_ContinentCountries</code> to your own language.</p>
+</blockquote>
+<pre><code class="language-Pre-defined countries&quot;">Europe
+      - Albania
+      - Andorra
+      - Austria
+      - Belarus
+      - Belgium
+      - Bosnia and Herzegovina
+      - Bulgaria
+      - Croatia
+      - Cyprus
+      - Czech Republic
+      - Denmark
+      - Estonia
+      - Finland
+      - Finland-Åland
+      - France
+      - Georgia
+      - Germany
+      - Greece
+      - Hungary
+      - Iceland
+      - Ireland
+      - Italy
+      - Kosovo
+      - Latvia
+      - Liechtenstein
+      - Lithuania
+      - Luxembourg
+      - Malta
+      - Moldova
+      - Moldova-Transnistria
+      - Monaco
+      - Montenegro
+      - Netherlands
+      - North Macedonia
+      - Norway
+      - Poland
+      - Portugal
+      - Romania
+      - Russia
+      - San Marino
+      - Serbia
+      - Slovakia
+      - Slovenia
+      - Spain
+      - Sweden
+      - Switzerland
+      - Ukraine
+      - United Kingdom
+      - United Kingdom-Akrotiri and Dhekelia
+      - United Kingdom-Gibraltar
+      - United Kingdom-Jersey
+      - Vatican City
+
+Asia
+      - Afghanistan
+      - Armenia
+      - Azerbaijan
+      - Bahrain
+      - Bangladesh
+      - Bhutan
+      - Brunei
+      - Cambodia
+      - China
+      - Cyprus
+      - Georgia
+      - India
+      - Indonesia
+      - Iran
+      - Iraq
+      - Israel
+      - Japan
+      - Jordan
+      - Kazakhstan
+      - Kuwait
+      - Kyrgyzstan
+      - Laos
+      - Lebanon
+      - Malaysia
+      - Maldives
+      - Mongolia
+      - Myanmar
+      - Nepal
+      - North Korea
+      - Oman
+      - Pakistan
+      - Philippines
+      - Qatar
+      - Russia
+      - Saudi Arabia
+      - Singapore
+      - South Korea
+      - Sri Lanka
+      - Syria
+      - Taiwan
+      - Tajikistan
+      - Thailand
+      - Timor-Leste
+      - Turkey
+      - Turkmenistan
+      - United Arab Emirates
+      - Uzbekistan
+      - Vietnam
+      - Yemen
+
+North America
+      - Antigua and Barbuda
+      - Bahamas
+      - Barbados
+      - Belize
+      - Canada
+      - Costa Rica
+      - Cuba
+      - Dominica
+      - Dominican Republic
+      - El Salvador
+      - Grenada
+      - Guatemala
+      - Haiti
+      - Honduras
+      - Jamaica
+      - Mexico
+      - Nicaragua
+      - Panama
+      - Saint Kitts and Nevis
+      - Saint Lucia
+      - Saint Vincent and the Grenadines
+      - Trinidad and Tobago
+      - United States
+
+South America
+      - Argentina
+      - Bolivia
+      - Brazil
+      - Chile
+      - Colombia
+      - Ecuador
+      - Guyana
+      - Paraguay
+      - Peru
+      - Suriname
+      - Uruguay
+      - Venezuela
+
+Africa
+      - Algeria
+      - Angola
+      - Benin
+      - Botswana
+      - Burkina Faso
+      - Burundi
+      - Cabo Verde
+      - Cameroon
+      - Central African Republic
+      - Chad
+      - Comoros
+      - Democratic Republic of the Congo
+      - Djibouti
+      - Egypt
+      - Equatorial Guinea
+      - Eritrea
+      - Eswatini
+      - Ethiopia
+      - Gabon
+      - Gambia
+      - Ghana
+      - Guinea
+      - Guinea-Bissau
+      - Ivory Coast
+      - Kenya
+      - Lesotho
+      - Liberia
+      - Libya
+      - Madagascar
+      - Malawi
+      - Mali
+      - Mauritania
+      - Mauritius
+      - Morocco
+      - Mozambique
+      - Namibia
+      - Niger
+      - Nigeria
+      - Republic of the Congo
+      - Rwanda
+      - Sao Tome and Principe
+      - Senegal
+      - Seychelles
+      - Sierra Leone
+      - Somalia
+      - South Africa
+      - South Sudan
+      - Sudan
+      - Tanzania
+      - Togo
+      - Tunisia
+      - Uganda
+      - Zambia
+      - Zimbabwe
+
+Oceania
+      - Australia
+      - Fiji
+      - Kiribati
+      - Marshall Islands
+      - Micronesia
+      - Nauru
+      - New Zealand
+      - Palau
+      - Papua New Guinea
+      - Samoa
+      - Solomon Islands
+      - Tonga
+      - Tuvalu
+      - Vanuatu
+</code></pre>
+<h2 id="table-participant-groups"><a class="header" href="#table-participant-groups">Table: Participant Groups</a></h2>
+<p>The forth table in your SQLite file is named <code>bewx_ParticipantGroups</code> with one field according to following.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Column Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>ParticipantGroup</td><td>Add the names of your different travel groups. The field <code>ParticipantGroup</code> in <code>bewa_Overview</code> is validated against groups in this table.<br /><br /><strong>Syntax:</strong> <code>&lt;string without space&gt;</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="table-trip-domains"><a class="header" href="#table-trip-domains">Table: Trip Domains</a></h2>
+<p>The fifth table in your SQLite file is named <code>bewx_TripDomains</code> with fields according to following.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Column Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>DomainAbbreviation</td><td>A one letter abbreviation for the trip domain.<br /><br /><strong>Syntax:</strong> <code>&lt;one capital letter&gt;</code></td></tr>
+<tr><td>DomainDescription</td><td>The description of the trip domain. E.g. abroad, domestic.<br /><br /><strong>Syntax:</strong> <code>&lt;string without space&gt;</code></td></tr>
+<tr><td>Color</td><td>A hexadecimal number specifying the color of the trip domain. Eg. #123456.<br /><br /><strong>Syntax:</strong> <code>&lt;haxadecimal color code&gt;</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="about-trip-domains"><a class="header" href="#about-trip-domains">About Trip Domains</a></h3>
+<p>There are three pre-defined trip domains</p>
+<ul>
+<li>Domestic trip</li>
+<li>Trip abroad</li>
+<li>Attachment trip</li>
+</ul>
+<p>An attachment trip is defined as a visit to a country where you have a deeper connection. For example, if you study abroad, you might want to document that time but distinguish it from the ordinary abroad or domestic category.</p>
+<h2 id="appendix"><a class="header" href="#appendix">Appendix</a></h2>
+<h3 id="special-syntax-used-for-countries-during-day-events"><a class="header" href="#special-syntax-used-for-countries-during-day-events">Special syntax used for Countries During Day (Events)</a></h3>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Countries During Day: When a prefix is used in front of a country name in field <strong>CountriesDuringDay</strong> in table <code>bewb_Events</code> it affect the <strong>Statistics</strong> page.</p>
+</blockquote>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Prefix</th><th>Function</th></tr>
+</thead>
+<tbody>
+<tr><td>*</td><td>Shorter visit of significant importance</td></tr>
+<tr><td>**</td><td>Very short visit of without significant importance</td></tr>
+<tr><td>+</td><td>Restore, counts only if * and ** count</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="settings"><a class="header" href="#settings">Settings</a></h1>
+<h2 id="database-file"><a class="header" href="#database-file">Database file</a></h2>
+<p>The settings is configured the database file table <code>bewxx_Settings</code>. The following fields are applicable</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Attribute Group</th><th>Attribute</th><th>Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Base</td><td>HomeCountry</td><td><strong>Country</strong></td><td>Use this to remove your own country from the trip unique countries field. Use same spelling as in your notes and in the table <code>bewx_ContinentCountries</code>.</td></tr>
+<tr><td>Base</td><td>LanguageFile</td><td><strong>Filename</strong></td><td>Filename to the translation file located in the <strong>personal</strong> folder, e.g. <code>swedish.json</code>.</td></tr>
+<tr><td>Base</td><td>SqliteFile</td><td><strong>Relative path</strong></td><td>Path to the SQLite file relative to index.html (e.g. <code>personal/bewegung.db</code>).</td></tr>
+<tr><td>Base</td><td>DatasetEditorUrl</td><td><strong>URL</strong></td><td>An URL to the webbased editor you use for the SQLite file. Could be used in conjunction with <a href="https://github.com/tursodatabase/libsql">libsql (Turso)</a>.</td></tr>
+<tr><td>Base</td><td>Immich</td><td><strong>Disabled</strong> or <strong>Enabled</strong></td><td>Enable if you want filter links from all event dates to Immich.</td></tr>
+<tr><td>Feature</td><td>ImmichUrl</td><td><strong>URL</strong></td><td>Online URL to the Immich installation (e.g. <code>https://immich.example.com/</code>).</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="path-to-database"><a class="header" href="#path-to-database">Path to database</a></h2>
+<p>Change <code>server_db_path.txt</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="translations"><a class="header" href="#translations">Translations</a></h1>
+<h2 id="app-translation"><a class="header" href="#app-translation">App translation</a></h2>
+<p>If the app is not available in your language you can easily translate it by placing a file in the folder <strong>personal/</strong> and change the value in settings table <code>bewxx_Settings</code>.</p>
+<p>Read more under <a href="settings">Settings</a>.</p>
+<h2 id="continent-and-country-translations"><a class="header" href="#continent-and-country-translations">Continent and Country translations</a></h2>
+<p>The continent and countries can be translated, read more <a href="trip-syntax/table-continent-countries">Table: Continent Countries</a>.</p>
+<h2 id="trip-domain-translation"><a class="header" href="#trip-domain-translation">Trip Domain translation</a></h2>
+<p>The trip domains can be translated, read more <a href="trip-syntax/table-trip-domains">Table: Trip Domains</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="immich-integration"><a class="header" href="#immich-integration">Immich Integration</a></h1>
+<h2 id="hide-immich-search-bar"><a class="header" href="#hide-immich-search-bar">Hide Immich search bar</a></h2>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>When Immer in Bewegung embeds photos in <strong>image view</strong> (see below), the search bar from Immich will be displayed unless you use small a css modification in your Immich settings.</p>
+</blockquote>
+<p>Add</p>
+<pre><code>body:has(#search-chips:target) #asset-selection-app-bar,
+body:has(#search-chips:target) #search-chips {
+  display:none;
+}
+</code></pre>
+<p>to <strong>User Icon</strong> &gt; <strong>Admininstration</strong> &gt; <strong>Settings</strong> &gt; <strong>Theme Settings</strong>: Custom CSS.</p>
+<p><img src="img/immich_search_bar.png" alt="img"></p>
+<h2 id="usage-of-immich-api"><a class="header" href="#usage-of-immich-api">Usage of Immich API</a></h2>
+<p>To make use of Immich API you need to allow CORS, example snippet to add to <strong>/etc/caddy/Caddyfile</strong></p>
+<pre><code>immich.your-server-name.duckdns.org {
+
+        header {
+                Access-Control-Allow-Origin  https://your-server-name.duckdns.org
+                Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+                Access-Control-Allow-Headers "Content-Type, x-api-key"
+        }
+
+        @options method OPTIONS
+        respond @options 204
+
+        reverse_proxy http://localhost:2283
+
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="other-needs"><a class="header" href="#other-needs">Other needs</a></h1>
+<h2 id="expose-web-server-to-internet"><a class="header" href="#expose-web-server-to-internet">Expose web server to internet</a></h2>
+<p>Using Caddy this becomes easy. Deploy the server with</p>
+<pre><code class="language-text title=&quot;/etc/caddy/Caddyfile&quot;">your-server-name.duckdns.org {
+
+        # Generate password storing hash with: caddy hash-password
+        basic_auth {
+                # Username "iib", password "bewegung"
+                iib $2a$14$basROD3Y0cLE.VqXd.h89.akCQDKzhp6IH9ND2CRFyEICkMrKn3AO        
+        }
+
+        root /var/www/iib/
+
+}
+</code></pre>
+<h3 id="alternatives"><a class="header" href="#alternatives">Alternatives</a></h3>
+<ul>
+<li>Add support for https
+<ul>
+<li>E.g. via Let’s encrypt</li>
+</ul>
+</li>
+<li>Use user authentication via
+<ul>
+<li>Authelia, or</li>
+<li>Authentik, or</li>
+<li>Client certificates, or</li>
+<li>Port forwarding over SSH (e.g. using Termius on Android)</li>
+</ul>
+</li>
+</ul>
+<h2 id="list-over-sql-queries"><a class="header" href="#list-over-sql-queries">List over SQL Queries</a></h2>
+<p>You can browse in folder queries/ to see the SQL queries used by the application. This can be useful if you want to make same analtycis as the application in some other software.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="logotype"><a class="header" href="#logotype">Logotype</a></h1>
+<p>If you like Immer in Bewegung and want to link to the project from your homepage, you can use this button.</p>
+<p><img src="img/get_bewegung.svg" alt="img"></p>
+<h2 id="code"><a class="header" href="#code">Code</a></h2>
+<pre><code>&lt;a href="https://bewegung.app/" style="text-decoration:none;"&gt;&lt;img src="img/get_bewegung.svg"&gt;&lt;/a&gt;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

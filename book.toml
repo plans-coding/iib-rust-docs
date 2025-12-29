@@ -1,0 +1,11 @@
+[book]
+title = "Immer in Bewegung Documentation — 3rd gen DRAFT"
+authors = ["plans-coding"]
+language = "en"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+git-repository-url = "https://github.com/rust-lang/mdBook"
+git-repository-icon = "fab-github"
