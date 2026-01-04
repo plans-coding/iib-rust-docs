@@ -4,7 +4,7 @@
 Using Caddy this becomes easy. Deploy the server with
 
 ```text title="/etc/caddy/Caddyfile"
-your-server-name.duckdns.org {
+immich.your-server-name.dedyn.io {
 
         # Generate password storing hash with: caddy hash-password
         basic_auth {
@@ -27,4 +27,4 @@ your-server-name.duckdns.org {
     * Port forwarding over SSH (e.g. using Termius on Android)
     
 ## List over SQL Queries
-You can browse in folder queries/ to see the SQL queries used by the application. This can be useful if you want to make same analtycis as the application in some other software.
+You can browse the folder `queries/` if you want to see what SQL queries the app is using. This can be useful if you want to make some analytics in another other software.

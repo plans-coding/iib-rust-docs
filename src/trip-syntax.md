@@ -301,14 +301,14 @@ An attachment trip is defined as a visit to a country where you have a deeper co
 
 ### Special syntax used for Countries During Day (Events)
 
-> [!NOTE]
-> Countries During Day: When a prefix is used in front of a country name in field **CountriesDuringDay** in table `bewb_Events` it affect the **Statistics** page.
-
 |Prefix|Function
 |-|-|
 |*|Shorter visit of significant importance
 |**|Very short visit of without significant importance
 |+|Restore, counts only if * and ** count
+
+> [!NOTE]
+> Countries During Day: When a prefix is used in front of a country name in field **CountriesDuringDay** in table `bewb_Events` it affect the **Statistics** page.
 
 
 

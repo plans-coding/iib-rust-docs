@@ -15,7 +15,7 @@ The settings is configured the database file table `bewxx_Settings`. The followi
 
 ## Path to database
 
-Change `server_db_path.txt`
+Change the relative path to the database file in `server_db_path.txt` if you want your own database to load automatically when self-hosting.
 
 
 

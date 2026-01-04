@@ -5,7 +5,7 @@ The idea for this application came to me while reflecting on the countless journ
 That is how **Immer in Bewegung** was born. The name, meaning *always in movement* in German, perfectly encapsulates the heart of this project. To bring this concept to life, the frog is chosen as the mascot—a symbol of endless motion and adventure.
 
 > [!NOTE]
-> You can check out the online app running at [https://online.bewegung.app/](https://online.bewegung.app/). If you want to bind your own data, you can do so via [https://online.bewegung.app/?p=source](https://online.bewegung.app/?p=source).
+> You can check out the online app running at [https://online.bewegung.app/](https://online.bewegung.app/). If you want to bind your own data, you can do so via [https://online.bewegung.app/?path=source](https://online.bewegung.app/?path=source).
 
 ## Basic idea
 
