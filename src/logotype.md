@@ -4,7 +4,7 @@ If you like Immer in Bewegung and want to link to the project from your homepage
 
 ![img](img/get_bewegung.svg)
 
-## Code
+**Code for embedding to copy**
 
 ```
 <a href="https://bewegung.app/" style="text-decoration:none;"><img src="img/get_bewegung.svg"></a>

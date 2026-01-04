@@ -64,9 +64,12 @@ getLatestReleaseTag();
     <p><br>Try out the online version using <a class="link" href="https://online.bewegung.app/">example data</a> or <a class="link" href="https://online.bewegung.app/?path=source">your own data</a>.</p>
 <br />
 
-<div style="display:flex;align-items: center;justify-content: center;">
-    <img style="display:block;" src="https://rust-lang.org/static/images/rust-logo-blk.svg" alt="Rust" height="100">
-    <img style="display:block;" src="https://webassembly.org/css/webassembly.svg" alt="WebAssembly" height="60">
+<div style="display:flex;">
+    <div style="display:flex;align-items: center;justify-content: center;background-color:var(--sidebar-bg);border-radius:30pt;padding:0 20pt 0 20pt;margin:auto;">
+        <img style="display:block;" src="https://rust-lang.org/static/images/rust-logo-blk.svg" alt="Rust" height="100">
+        <img style="display:block;" src="https://webassembly.org/css/webassembly.svg" alt="WebAssembly" height="60">&nbsp;&nbsp;&nbsp;
+        <img style="display:block;" src="img/sqlite.svg" alt="SQLite" height="65">
+    </div>
 </div>
 
 <p>For self-hosting deployment</p>
